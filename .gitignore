@@ -5,3 +5,5 @@
 node_modules/
 
 Invoice.pdf
+
+src/data/dummyData.json
