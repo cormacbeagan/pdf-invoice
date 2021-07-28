@@ -6,9 +6,11 @@ import drawFooter from "components/footer";
 import { IData } from "data/dataTypes";
 import drawAddress from "components/address";
 import drawOwnAddress from "components/ownAddress";
+import { colors } from "resources/colors/colors";
+import drawInvoiceDetails from "components/invoiceDetails";
 
 export const margins = {
-  top: 30,
+  top: 22,
   left: 20,
   right: 20,
   bottom: 20,
@@ -16,6 +18,7 @@ export const margins = {
   posBottom: 297 - 20,
   pageWidth: 210,
   pageHeight: 297,
+  quarter: (210 - 40) / 4,
 };
 
 const createInvoice = (jsonData: IData): void => {
@@ -26,6 +29,7 @@ const createInvoice = (jsonData: IData): void => {
     compress: true,
   });
   addFonts(doc);
+  doc.setTextColor(colors.dark);
   let posX = margins.left;
   let posY = margins.top;
   drawHeader(doc);
@@ -35,7 +39,9 @@ const createInvoice = (jsonData: IData): void => {
   drawOwnAddress(doc, posX + 5, posY, jsonData.ownDetails);
   posY += 5;
 
-  drawAddress(doc, posX + 5, posY, jsonData.client);
+  posY = drawAddress(doc, posX + 5, posY, jsonData.client);
+
+  drawInvoiceDetails(doc, posY, jsonData.invoiceDetails);
 
   doc.save("Invoice.pdf");
 };

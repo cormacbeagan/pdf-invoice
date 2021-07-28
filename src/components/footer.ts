@@ -3,8 +3,8 @@ import jsPDF from "jspdf";
 import { colors } from "resources/colors/colors";
 
 const drawFooter = (doc: jsPDF) => {
-  doc.setDrawColor(colors.grey);
-  doc.setLineWidth(0.3);
+  doc.setDrawColor(colors.blue);
+  doc.setLineWidth(0.18);
 
   doc.line(
     margins.left,

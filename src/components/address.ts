@@ -18,6 +18,7 @@ const drawAddress = (doc: jsPDF, x: number, y: number, data: IClient) => {
   doc.text(data.address.postcode, posX, posY);
   posY += lineHeight;
   doc.text(data.address.country, posX, posY);
+  return posY + lineHeight;
 };
 
 export default drawAddress;
