@@ -3,7 +3,7 @@ import { margins } from "index";
 import jsPDF from "jspdf";
 import { colors } from "resources/colors/colors";
 
-const drawTable = (doc: jsPDF, y: number, data: IWork[]) => {
+const drawTable = (doc: jsPDF, y: number, data: IWork[]): number => {
   const tableColumns = {
     first: margins.left + 15,
     second: margins.middle,
@@ -32,7 +32,7 @@ const drawTable = (doc: jsPDF, y: number, data: IWork[]) => {
   data.forEach((item) => {
     doc.text(`${pos}`, margins.left + 3, posY, { align: "right" });
     doc.text(item.description, tableColumns.first + 3, posY);
-    doc.text(`${item.hours}`, tableColumns.second + 3, posY);
+    doc.text(`${item.hours} hrs`, tableColumns.second + 3, posY);
     doc.text(
       `${item.currency === "euro" ? "€" : "£"}${item.rate.toFixed(2)}`,
       tableColumns.fourth,
@@ -64,6 +64,7 @@ const drawTable = (doc: jsPDF, y: number, data: IWork[]) => {
   posY += 5;
   doc.setDrawColor(colors.blue);
   doc.line(tableColumns.third, posY, margins.posRight, posY);
+  return posY;
 };
 
 export default drawTable;

@@ -44,8 +44,28 @@ const createInvoice = (jsonData: IData): void => {
   posY = drawAddress(doc, posX + 5, posY, jsonData.client);
 
   drawInvoiceDetails(doc, posY, jsonData.invoiceDetails);
+  posY += 15;
+  doc.setFont("MonserratLight", "normal");
+  doc.setFontSize(10);
+  doc.text(
+    "Thank you for our working collaberation - as per our agreement I am sending you the following invoice.",
+    margins.left,
+    posY,
+    {
+      maxWidth: margins.pageWidth - 40,
+    }
+  );
+  posY += 10;
+  posY = drawTable(doc, posY, jsonData.work);
   posY += 20;
-  drawTable(doc, posY, jsonData.work);
+  doc.text(
+    "Payment is due within 14 days of receipt of this invoice and should be paid in full to the following bank account:",
+    margins.left,
+    posY,
+    {
+      maxWidth: margins.pageWidth - 40,
+    }
+  );
 
   doc.save("Invoice.pdf");
 };
