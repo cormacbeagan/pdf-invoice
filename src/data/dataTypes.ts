@@ -1,5 +1,5 @@
 export interface IData {
-  work: IWork;
+  work: IWork[];
   client: IClient;
   invoiceDetails: IInvoiceDetails;
   ownDetails: IOwnDetails;
@@ -9,6 +9,7 @@ export interface IWork {
   hours: number;
   rate: number;
   currency: string;
+  description: string;
 }
 
 export interface IClient {
@@ -18,6 +19,7 @@ export interface IClient {
 
 export interface IInvoiceDetails {
   date: string;
+  supplyDate: string;
   invoiceNr: string;
 }
 

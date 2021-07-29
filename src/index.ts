@@ -8,6 +8,7 @@ import drawAddress from "components/address";
 import drawOwnAddress from "components/ownAddress";
 import { colors } from "resources/colors/colors";
 import drawInvoiceDetails from "components/invoiceDetails";
+import drawTable from "components/table";
 
 export const margins = {
   top: 22,
@@ -18,6 +19,7 @@ export const margins = {
   posBottom: 297 - 20,
   pageWidth: 210,
   pageHeight: 297,
+  middle: 210 / 2,
   quarter: (210 - 40) / 4,
 };
 
@@ -42,6 +44,8 @@ const createInvoice = (jsonData: IData): void => {
   posY = drawAddress(doc, posX + 5, posY, jsonData.client);
 
   drawInvoiceDetails(doc, posY, jsonData.invoiceDetails);
+  posY += 20;
+  drawTable(doc, posY, jsonData.work);
 
   doc.save("Invoice.pdf");
 };
