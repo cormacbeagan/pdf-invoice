@@ -5,11 +5,11 @@ const drawAddress = (doc: jsPDF, x: number, y: number, data: IClient) => {
   let posX = x;
   let posY = y;
   doc.setFontSize(12);
-  doc.setFont("MonserratBold", "bold");
+  doc.setFont("KanitMedium", "normal");
   const lineHeight = doc.getTextDimensions("Some").h + 1;
   posY += lineHeight;
   doc.text(data.name, posX, posY);
-  doc.setFont("MonserratLight", "normal");
+  doc.setFont("KanitLight", "normal");
   posY += lineHeight;
   doc.text(data.address.line1, posX, posY);
   posY += lineHeight;

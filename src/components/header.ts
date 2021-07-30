@@ -14,7 +14,7 @@ const drawHeader = (doc: jsPDF) => {
     baseline: "middle",
   });
   doc.setFontSize(12);
-  doc.setFont("MonserratSemiBold", "normal");
+  doc.setFont("KanitLight", "normal");
 };
 
 export default drawHeader;

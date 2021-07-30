@@ -12,6 +12,7 @@ const drawOwnAddress = (
   let posY = y;
   doc.setFontSize(10);
   doc.setTextColor(colors.blue);
+  doc.setFont("KanitMedium", "normal");
   doc.text(data.name + " | ", posX, posY);
   posX += doc.getTextDimensions(data.name + " | ").w;
   doc.text(data.address.line1 + " | ", posX, posY);

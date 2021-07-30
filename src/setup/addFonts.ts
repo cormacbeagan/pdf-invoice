@@ -1,19 +1,19 @@
 import jsPDF from "jspdf";
 
-import montserratBold from "resources/fonts/montserrat-bold";
 import lobster from "resources/fonts/lobster";
-import montserratSemiBold from "resources/fonts/montserrat-semi-bold";
-import montserratLight from "resources/fonts/montserrat-light";
 import abril from "resources/fonts/abril";
+import kanitBold from "resources/fonts/kanitBold";
+import kanitLight from "resources/fonts/kanitLight";
+import kanitRegular from "resources/fonts/kanitRegular";
 
 const addFonts = (doc: jsPDF) => {
   // Add Trauma fonts to jsPDF
-  doc.addFileToVFS("MonserratBold.ttf", montserratBold);
-  doc.addFont("MonserratBold.ttf", "MonserratBold", "bold");
-  doc.addFileToVFS("MonserratSemiBold.ttf", montserratSemiBold);
-  doc.addFont("MonserratSemiBold.ttf", "MonserratSemiBold", "normal");
-  doc.addFileToVFS("MonserratLight.ttf", montserratLight);
-  doc.addFont("MonserratLight.ttf", "MonserratLight", "normal");
+  doc.addFileToVFS("KanitBold.ttf", kanitBold);
+  doc.addFont("KanitBold.ttf", "KanitBold", "bold");
+  doc.addFileToVFS("KanitLight.ttf", kanitLight);
+  doc.addFont("KanitLight.ttf", "KanitLight", "normal");
+  doc.addFileToVFS("KanitRegular.ttf", kanitRegular);
+  doc.addFont("KanitRegular.ttf", "KanitMedium", "normal");
   doc.addFileToVFS("lobster.ttf", lobster);
   doc.addFont("lobster.ttf", "Lobster", "normal");
 
@@ -21,7 +21,7 @@ const addFonts = (doc: jsPDF) => {
   doc.addFont("Abril_Fatface.ttf", "Abril", "normal");
 
   // Set starting font for PDF
-  doc.setFont("MonserratLight", "normal");
+  doc.setFont("KanitLight", "normal");
 };
 
 export default addFonts;

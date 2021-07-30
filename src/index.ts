@@ -9,6 +9,7 @@ import drawOwnAddress from "components/ownAddress";
 import { colors } from "resources/colors/colors";
 import drawInvoiceDetails from "components/invoiceDetails";
 import drawTable from "components/table";
+import drawBankDetails from "components/bankDetails";
 
 export const margins = {
   top: 22,
@@ -16,7 +17,7 @@ export const margins = {
   right: 20,
   bottom: 20,
   posRight: 210 - 20,
-  posBottom: 297 - 20,
+  posBottom: 297 - 30,
   pageWidth: 210,
   pageHeight: 297,
   middle: 210 / 2,
@@ -35,7 +36,7 @@ const createInvoice = (jsonData: IData): void => {
   let posX = margins.left;
   let posY = margins.top;
   drawHeader(doc);
-  drawFooter(doc);
+  drawFooter(doc, jsonData);
 
   posY += 15;
   drawOwnAddress(doc, posX + 5, posY, jsonData.ownDetails);
@@ -45,8 +46,8 @@ const createInvoice = (jsonData: IData): void => {
 
   drawInvoiceDetails(doc, posY, jsonData.invoiceDetails);
   posY += 15;
-  doc.setFont("MonserratLight", "normal");
-  doc.setFontSize(10);
+  doc.setFont("KanitLight", "normal");
+  doc.setFontSize(12);
   doc.text(
     "Thank you for our working collaberation - as per our agreement I am sending you the following invoice.",
     margins.left,
@@ -58,6 +59,8 @@ const createInvoice = (jsonData: IData): void => {
   posY += 10;
   posY = drawTable(doc, posY, jsonData.work);
   posY += 20;
+  doc.setFontSize(12);
+  doc.setFont("KanitLight", "normal");
   doc.text(
     "Payment is due within 14 days of receipt of this invoice and should be paid in full to the following bank account:",
     margins.left,
@@ -66,8 +69,16 @@ const createInvoice = (jsonData: IData): void => {
       maxWidth: margins.pageWidth - 40,
     }
   );
+  posY += 15;
+  posY = drawBankDetails(doc, posY, jsonData.bankDetails);
 
-  doc.save("Invoice.pdf");
+  doc.text(
+    `Please quote your company name and the invoice number with the transfer (${jsonData.client.name}-${jsonData.invoiceDetails.invoiceNr})`,
+    margins.left,
+    posY + 5,
+    { maxWidth: margins.pageWidth - 40 }
+  );
+  doc.save(`${jsonData.client.name}-${jsonData.invoiceDetails.invoiceNr}.pdf`);
 };
 
 createInvoice(json);

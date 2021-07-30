@@ -3,6 +3,7 @@ export interface IData {
   client: IClient;
   invoiceDetails: IInvoiceDetails;
   ownDetails: IOwnDetails;
+  bankDetails: IBankDetails;
 }
 
 export interface IWork {
@@ -27,6 +28,9 @@ export interface IOwnDetails {
   name: string;
   fullName: string;
   address: IAddress;
+  tel: string;
+  email: string;
+  homepage: string;
 }
 
 export interface IAddress {
@@ -34,4 +38,11 @@ export interface IAddress {
   line2: string;
   country: string;
   postcode: string;
+}
+
+export interface IBankDetails {
+  inhaber: string;
+  IBAN: string;
+  BIC: string;
+  bank: string;
 }

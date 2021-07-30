@@ -16,8 +16,8 @@ const drawTable = (doc: jsPDF, y: number, data: IWork[]): number => {
   doc.setLineWidth(0.3);
   doc.line(margins.left, posY, margins.posRight, posY);
   posY += 5;
-  doc.setFont("MonserratSemiBold", "normal");
-  doc.setFontSize(10);
+  doc.setFont("KanitMedium", "normal");
+  doc.setFontSize(12);
   doc.text("Pos.", margins.left, posY);
   doc.text("Description", tableColumns.first, posY);
   doc.text("Amount", tableColumns.second, posY);
