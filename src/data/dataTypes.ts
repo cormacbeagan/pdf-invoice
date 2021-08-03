@@ -1,4 +1,5 @@
 export interface IData {
+  title: string;
   work: IWork[];
   client: IClient;
   invoiceDetails: IInvoiceDetails;

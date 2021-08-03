@@ -35,7 +35,7 @@ const createInvoice = (jsonData: IData): void => {
   doc.setTextColor(colors.dark);
   let posX = margins.left;
   let posY = margins.top;
-  drawHeader(doc);
+  drawHeader(doc, jsonData.title);
   drawFooter(doc, jsonData);
 
   posY += 15;
