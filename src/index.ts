@@ -1,6 +1,5 @@
 import jsPDF from "jspdf";
 import addFonts from "setup/addFonts";
-import json from "data/dummyData.json";
 import drawHeader from "components/header";
 import drawFooter from "components/footer";
 import { IData } from "data/dataTypes";
@@ -81,4 +80,4 @@ const createInvoice = (jsonData: IData): void => {
   doc.save(`${jsonData.client.name}-${jsonData.invoiceDetails.invoiceNr}.pdf`);
 };
 
-createInvoice(json);
+export default createInvoice;

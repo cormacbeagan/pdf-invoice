@@ -6,6 +6,6 @@ node_modules/
 
 Invoice.pdf
 
-src/data/dummyData.json
+src/data/jsonData/
 
 lib/
