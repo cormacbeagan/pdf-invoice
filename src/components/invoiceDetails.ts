@@ -1,5 +1,5 @@
 import { IInvoiceDetails } from "data/dataTypes";
-import { margins } from "index";
+import { margins } from "../index";
 import jsPDF from "jspdf";
 
 const drawInvoiceDetails = (doc: jsPDF, y: number, data: IInvoiceDetails) => {

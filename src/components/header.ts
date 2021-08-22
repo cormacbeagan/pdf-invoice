@@ -1,4 +1,4 @@
-import { margins } from "index";
+import { margins } from "../index";
 import jsPDF from "jspdf";
 import { colors } from "resources/colors/colors";
 
