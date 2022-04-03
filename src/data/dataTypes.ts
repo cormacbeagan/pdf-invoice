@@ -12,6 +12,7 @@ export interface IWork {
   rate: number;
   currency: string;
   description: string;
+  unit?: string;
 }
 
 export interface IClient {
