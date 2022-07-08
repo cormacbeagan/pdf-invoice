@@ -32,7 +32,12 @@ const drawFooter = (doc: jsPDF, data: IData) => {
   posY += lineHeight;
   doc.text(`Email: ${data.ownDetails.email}`, posX, posY);
   posY += lineHeight;
-  doc.text(`Web: ${data.ownDetails.homepage}`, posX, posY);
+  doc.textWithLink(`Web: ${data.ownDetails.homepage}`, posX, posY, {
+    url: `https://${data.ownDetails.homepage}`,
+  });
+  posY += lineHeight;
+  doc.text(`St. -Nr. / Tax Nr. : ${data.ownDetails.steuerId}`, posX, posY);
+
   posY = margins.posBottom + 5;
   posX += 50;
   doc.text(`IBAN: ${data.bankDetails.IBAN}`, posX, posY);
