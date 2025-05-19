@@ -1,9 +1,14 @@
-import { IWork } from "data/dataTypes";
+import { IConfig, IWork } from "data/dataTypes";
 import { margins } from "../index";
 import jsPDF from "jspdf";
 import { colors } from "resources/colors/colors";
 
-const drawTable = (doc: jsPDF, y: number, data: IWork[]): number => {
+const drawTable = (
+  doc: jsPDF,
+  y: number,
+  data: IWork[],
+  config?: IConfig
+): number => {
   const tableColumns = {
     first: margins.left + 15,
     second: margins.middle,
@@ -20,7 +25,7 @@ const drawTable = (doc: jsPDF, y: number, data: IWork[]): number => {
   doc.setFontSize(12);
   doc.text("Pos.", margins.left, posY);
   doc.text("Description", tableColumns.first, posY);
-  doc.text("Amount", tableColumns.second, posY);
+  doc.text(config?.unitHeader ?? "Amount", tableColumns.second, posY);
   doc.text("Single", tableColumns.fourth, posY, { align: "right" });
   doc.text("Total", margins.posRight, posY, { align: "right" });
   posY += 2;
@@ -32,11 +37,19 @@ const drawTable = (doc: jsPDF, y: number, data: IWork[]): number => {
   data.forEach((item) => {
     doc.text(`${pos}`, margins.left + 3, posY, { align: "right" });
     doc.text(item.description, tableColumns.first + 3, posY);
-    doc.text(
-      `${item.hours} ${item.unit ? item.unit : "hrs"}`,
-      tableColumns.second + 3,
-      posY
-    );
+    if (config?.showUnitNumber ?? true) {
+      doc.text(
+        `${item.hours} ${item.unit ? item.unit : "hrs"}`,
+        tableColumns.second + 3,
+        posY
+      );
+    } else {
+      doc.text(
+        `${item.unit ? item.unit : "hrs"}`,
+        tableColumns.second + 3,
+        posY
+      );
+    }
     doc.text(
       `${item.currency === "euro" ? "€" : "£"}${item.rate.toFixed(2)}`,
       tableColumns.fourth,

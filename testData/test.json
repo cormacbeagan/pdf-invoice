@@ -1,0 +1,50 @@
+{
+  "title": "Mac Beagan Web Development",
+  "work": [
+    {
+      "hours": 1,
+      "rate": 1188,
+      "currency": "euro",
+      "description": "Javascript Development",
+      "unit": "April"
+    }
+  ],
+  "config": {
+    "unitHeader": "Month",
+    "showUnitNumber": false
+  },
+  "invoiceDetails": {
+    "date": "30.04.2025",
+    "supplyDate": "01.04 - 30.04.2025",
+    "invoiceNr": "0425"
+  },
+  "client": {
+    "name": "ScribePro Limited",
+    "address": {
+      "line1": "2/1 34 West George Street",
+      "line2": "Glasgow",
+      "country": "Scotland",
+      "postcode": "G2 1DA"
+    }
+  },
+  "ownDetails": {
+    "name": "Mac Beagan",
+    "fullName": "P. Cormac Beagan",
+    "address": {
+      "line1": "Isartalstr. 16",
+      "line2": "Munich",
+      "country": "Germany",
+      "postcode": "80469"
+    },
+    "tel": "089 8776 5755",
+    "email": "cor@macbeagan.me",
+    "homepage": "macbeagan.me",
+    "steuerId": "144/132/81521"
+  },
+  "bankDetails": {
+    "inhaber": "Peter Cormac Beagan",
+    "IBAN": "DE64 1203 0000 1050 2380 60",
+    "BIC": "BYLADEM1001",
+    "bank": "Deutsche Kreditbank AG"
+  }
+}

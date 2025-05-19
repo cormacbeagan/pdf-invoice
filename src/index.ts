@@ -56,7 +56,7 @@ const createInvoice = (jsonData: IData): void => {
     }
   );
   posY += 10;
-  posY = drawTable(doc, posY, jsonData.work);
+  posY = drawTable(doc, posY, jsonData.work, jsonData.config);
   posY += 20;
   doc.setFontSize(12);
   doc.setFont("KanitLight", "normal");

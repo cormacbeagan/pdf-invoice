@@ -1,6 +1,7 @@
 export interface IData {
   title: string;
   work: IWork[];
+  config?: IConfig;
   client: IClient;
   invoiceDetails: IInvoiceDetails;
   ownDetails: IOwnDetails;
@@ -48,4 +49,9 @@ export interface IBankDetails {
   IBAN: string;
   BIC: string;
   bank: string;
+}
+
+export interface IConfig {
+  unitHeader: string;
+  showUnitNumber: boolean;
 }
